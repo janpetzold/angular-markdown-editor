@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="editor">
+    <head>
+        <title>Markdown Live Editor</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="Jan Petzold">
+        <meta name="viewport" content="width=device-width">
+        <link rel='stylesheet' href='css/bootstrap/3.0.3/bootstrap.css'/>
+        <link rel='stylesheet' href='css/bootstrap/3.0.3/bootstrap-theme.css'/>
+        <link rel='stylesheet' href='css/app.css'/>
+    </head>
+    <body ng-controller="EditorCtrl">
+        <div class="l-center">
+            <div id="editor-switch" class="btn-group">
+                <button type="button" class="btn btn-default btn-sm" ng-click="editor.changeType('syntax')" ng-class="editor.outputType == 'syntax' ? 'active' : ''">Markdown-Syntax</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click="editor.changeType('live')" ng-class="editor.outputType == 'live' ? 'active' : ''">Preview</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click="editor.changeType('source')" ng-class="editor.outputType == 'source' ? 'active' : ''">HTML-Code</button>
+            </div>
+        </div>
+        <div id="editor-container">
+            <div id="editor-input-container">
+                <textarea ng-model="editor.textInput" ng-change="editor.change(editor.textInput)" rows="20" cols="50" class="input"></textarea>
+            </div>
+            <button dragger id="editor-btn-resize" type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-resize-horizontal" />
+            </button>
+            <div id="editor-output-container">
+                <liveoutput class="output" ng-cloak>{{editor.textOutput}}</liveoutput>
+            </div>
+        </div>
+    		<script type="text/javascript" src="js/zepto.showdown.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/editor/app.min.js"></script>
+</body>
+</html>
