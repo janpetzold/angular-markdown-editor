@@ -18,7 +18,7 @@ defaultTasks 'clean', 'copyCss', 'copyPartials', 'combineAppJs', 'combineMinifie
     'minifyAppJs', 'minifyZeptoShowdownJs', 'copyAndProcessIndexHtml'
 
 task clean(type: Delete) {
-    delete "${buildDir}"
+    delete '${buildDir}/js', '${buildDir}/css', '${buildDir}/partials', '${buildDir}/index.html'
 }
 
 task copyCss(type:Copy) {
