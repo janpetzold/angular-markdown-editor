@@ -32,13 +32,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular-and-sanitize.min.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="angular-and-sanitize.min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/lib/angular/1.2.3/angular-and-sanitize.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="48" selection-start="113213" selection-end="113213" vertical-scroll-proportion="0.96666664" vertical-offset="2355" max-vertical-offset="3315">
+            <state line="215" column="48" selection-start="113213" selection-end="113213" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="3315">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="10" selection-start="24" selection-end="24" vertical-scroll-proportion="0.032858707" vertical-offset="0" max-vertical-offset="913">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,15 +101,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tutorial.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/partials/tutorial.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="converter.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/editor/converter.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/lib/blob/2013-06-20/blob.js" />
         <option value="$PROJECT_DIR$/js/lib/jspdf/0.9.0/jspdf.js" />
         <option value="$PROJECT_DIR$/js/lib/jspdf-from-html/beta/fromhtml.js" />
         <option value="$PROJECT_DIR$/js/lib/jspdf/0.9.0/jspdf-standard-fonts-metrics.js" />
@@ -145,6 +144,7 @@
         <option value="$PROJECT_DIR$/js/lib/angular/1.2.3/angular.min.js" />
         <option value="$PROJECT_DIR$/js/lib/angular/1.2.3/angular-sanitize.min.js" />
         <option value="$PROJECT_DIR$/js/lib/angular/1.2.3/angular-and-sanitize.min.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -385,15 +385,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/lib/jspdf/0.9.0/jspdf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1942" column="5" selection-start="81538" selection-end="81538" vertical-scroll-proportion="0.9811111" vertical-offset="28247" max-vertical-offset="29220">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/lib/jspdf/0.9.0/jspdf-from-html.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="562" column="48" selection-start="21405" selection-end="21405" vertical-scroll-proportion="0.0" vertical-offset="6602" max-vertical-offset="8985">
@@ -505,10 +496,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/lib/angular/1.2.3/angular-and-sanitize.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="48" selection-start="113213" selection-end="113213" vertical-scroll-proportion="0.96666664" vertical-offset="2355" max-vertical-offset="3315">
+        <state line="215" column="48" selection-start="113213" selection-end="113213" vertical-scroll-proportion="0.0" vertical-offset="2355" max-vertical-offset="3315">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="10" selection-start="24" selection-end="24" vertical-scroll-proportion="0.032858707" vertical-offset="0" max-vertical-offset="913">
+          <folding />
         </state>
       </provider>
     </entry>
