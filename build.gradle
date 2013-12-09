@@ -1,0 +1,108 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.eriwen:gradle-js-plugin:1.8.0'
+        classpath 'com.google.javascript:closure-compiler:r1918'
+    }
+}
+
+version = "1.0.0"
+buildDir = "../angular-markdown-editor-gh-pages"
+
+// Invoke the plugin
+apply plugin: 'js'
+
+defaultTasks 'clean', 'copyCss', 'copyPartials', 'combineAppJs', 'combineMinifiedAngularJs', 'combineZeptoShowdownJs', 
+    'minifyAppJs', 'minifyZeptoShowdownJs', 'copyAndProcessIndexHtml'
+
+task clean(type: Delete) {
+    delete "${buildDir}"
+}
+
+task copyCss(type:Copy) {
+    from "${projectDir}/css"
+    into "${buildDir}/css"
+}
+
+task copyPartials(type:Copy) {
+    from "${projectDir}/partials"
+    into "${buildDir}/partials"
+}
+
+task combineAppJs(type: com.eriwen.gradle.js.tasks.CombineJsTask) {
+    source = ["${projectDir}/js/editor"]
+    dest = file("${buildDir}/js/editor/app.js")
+}
+
+task combineMinifiedAngularJs(type: com.eriwen.gradle.js.tasks.CombineJsTask) {
+    source = ["${projectDir}/js/lib/angular/1.2.3/angular.min.js", "${projectDir}/js/lib/angular/1.2.3/angular-sanitize.min.js"]
+    dest = file("${buildDir}/js/angular.min.js")
+}
+
+task combineZeptoShowdownJs(type: com.eriwen.gradle.js.tasks.CombineJsTask) {
+    source = ["${projectDir}/js/lib/zepto/1.1.1", "${projectDir}/js/lib/showdown/0.3.1"]
+    dest = file("${buildDir}/js/zeptoShowdown.js")
+}
+
+task minifyAppJs(type: com.eriwen.gradle.js.tasks.MinifyJsTask) {
+    source = combineAppJs
+    dest = file("${buildDir}/js/editor/app.min.js")
+    closure {
+        warningLevel = 'QUIET'
+        // I had build problems using anything but WHITESPACE_ONLY
+        compilationLevel = 'WHITESPACE_ONLY'
+        compilerOptions.languageIn = 'ECMASCRIPT5_STRICT'
+    }
+}
+
+/*
+// Angular just didn't work although there were no build errors
+task minifyAngularJs(type: com.eriwen.gradle.js.tasks.MinifyJsTask) {
+    source = combineAngularJs
+    dest = file("${buildDir}/js/angular.min.js")
+    closure {
+        warningLevel = 'QUIET'
+        compilerOptions.languageIn = 'ECMASCRIPT5_STRICT'
+    }
+}
+*/
+
+task minifyZeptoShowdownJs(type: com.eriwen.gradle.js.tasks.MinifyJsTask) {
+    source = combineZeptoShowdownJs
+    dest = file("${buildDir}/js/zepto.showdown.min.js")
+}
+
+task copyAndProcessIndexHtml(type:Copy) {
+    from "${projectDir}"
+    into "${buildDir}"
+    include '*index.html'
+
+    // Remove all <script> lines
+    filter{
+        String line -> line.replaceAll(
+            "<script.*</script>", "")
+    }
+
+    // Insert the minified scripts we generated before the closing </body> tag
+    filter{
+        String line -> line.replaceAll(
+            '</body>', '\t\t<script type="text/javascript" src="js/zepto.showdown.min.js"></script>\r\n</body>')
+    }
+
+    filter{
+        String line -> line.replaceAll(
+            '</body>', '\t\t<script type="text/javascript" src="js/angular.min.js"></script>\r\n</body>')
+    }
+
+    filter{
+        String line -> line.replaceAll(
+            '</body>', '\t\t<script type="text/javascript" src="js/editor/app.min.js"></script>\r\n</body>')
+    }
+
+    // Remove all blank lines in HTML
+    def regexp = new org.apache.tools.ant.types.RegularExpression()
+    regexp.pattern = '[^ \n\t\r]+'
+    filter(org.apache.tools.ant.filters.LineContainsRegExp, regexps:[regexp])
+}

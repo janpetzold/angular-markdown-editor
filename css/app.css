@@ -1,0 +1,87 @@
+/** Global HTML settings */
+html {
+    height: 100%;
+}
+body {
+    font-size: 100%;
+    height: 100%;
+    padding: 4px;
+}
+
+/** Angular helpers and overrides */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+pre {
+    border: 0;
+}
+
+/** Generic layout classes */
+
+.l-center {
+    text-align: center;
+}
+
+/** Editor-specific stuff */
+div#editor-switch button {
+    width: 115px;
+}
+
+div#editor-container {
+    position: relative;
+    padding-left: 0;
+    margin-top: 8px;
+    width: 100%;
+    height: 90%;
+}
+
+div#editor-input-container, div#editor-output-container {
+    width: 49%;
+    min-height: 100%;
+}
+
+div#editor-input-container {
+    height: 100%;
+}
+
+button#editor-btn-resize {
+    position: absolute;
+    visibility: hidden;
+    top: 48%;
+    left: 49%;
+    width: 18px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+div#editor-output-container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 4px;
+    border: 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+
+textarea.input {
+    resize: none;
+    background-color: #2A2B23;
+    color: #F8F8F2;
+    width: 100%;
+    height: 100%;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    font-size: 1.25em;
+    border: 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+
+liveoutput.output {
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+article.editor-markdown-tutorial pre {
+    padding: 4px;
+}
