@@ -5,10 +5,11 @@ app.controller('EditorCtrl', function($scope, $http) {
 
     $scope.tutorialContent = '';
 
-    // Set default variables
-    $scope.editor.textInput = '';
-    $scope.editor.textOutput = '';
     $scope.editor.outputType = "live";
+
+    // Set initial values after page load
+    $scope.editor.textInput = 'Welcome!\n=======\n\nJust enter your text in the **left** input field and see the instant output on the right.';
+    $scope.editor.textOutput = app.convertTextToHtml($scope.editor.textInput);
 
     // Fetch tutorial text
     $http.get('partials/tutorial.html').success(function(data) {
@@ -20,8 +21,8 @@ app.controller('EditorCtrl', function($scope, $http) {
     };
 
     $scope.editor.change = function(value) {
-        var html = app.convertTextToHtml(value);
-        $scope.editor.textOutput = html;
+        // Conversion is triggered on every change in input
+        $scope.editor.textOutput = app.convertTextToHtml(value);
     };
 });
 
