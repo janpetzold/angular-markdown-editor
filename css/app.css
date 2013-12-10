@@ -39,9 +39,6 @@ div#editor-container {
 div#editor-input-container, div#editor-output-container {
     width: 49%;
     min-height: 100%;
-}
-
-div#editor-input-container {
     height: 100%;
 }
 
@@ -57,6 +54,7 @@ button#editor-btn-resize {
 
 div#editor-output-container {
     position: absolute;
+    overflow: auto;
     top: 0px;
     right: 0px;
     padding: 4px;

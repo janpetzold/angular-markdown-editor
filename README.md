@@ -19,10 +19,6 @@ The sourcecode is very compact, I made use of [Angular directives](http://docs.a
 
 I tested this in Chrome and Firefox. I kept the implementation very basic, basically all input is converted after every keypress. Even with bigger documents this never took more than 30ms on my machine, so I didn't notice it. Your mileage may vary.
 
-Known bugs:
-
-* Once a vertical scrollbar appears on the output pane, the resize button is not positioned correctly anymore
-
 Wishlist:
 
 * It would be great to integrate PDF export. I looked at [jsPDF](https://github.com/MrRio/jsPDF), but that doesn't support hyperlinks and images. Maybe doxument would be an option.
